@@ -1,0 +1,79 @@
+/* App.css */
+
+/* Updated styles for Octofit app */
+
+body {
+  background-color: #eaf7ff; /* Light sky blue background */
+  color: #2c3e50; /* Darker blue for text */
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1abc9c; /* Greenish color for headings */
+}
+
+a {
+  color: #3498db; /* Bright blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1abc9c; /* Greenish color on hover */
+}
+
+.navbar {
+  background-color: #34495e; /* Dark blue-gray for navigation */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.navbar img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-brand, .nav-link {
+  color: #ecf0f1 !important; /* Light text for navigation */
+}
+
+.nav-link:hover {
+  color: #1abc9c !important; /* Greenish color on hover */
+}
+
+button {
+  background-color: #1abc9c; /* Greenish buttons */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #16a085; /* Darker green on hover */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table th {
+  background-color: #2c3e50; /* Darker blue for table headers */
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray for even rows */
+}
+
+table tr:hover {
+  background-color: #ddd; /* Slightly darker gray on hover */
+}
