@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Activities() {
+  const [activities, setActivities] = useState([]);
+
+  useEffect(() => {
+    fetch('https://[REPLACE-WITH-CODESPACE-NAME]-8000.app.github.dev/api/activities')
+      .then(response => response.json())
+      .then(data => setActivities(data))
+      .catch(error => console.error('Error fetching activities:', error));
+  }, []);
+
   return (
     <div className="card">
       <div className="card-header">
@@ -16,16 +25,13 @@ function Activities() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Running</td>
-              <td>30 mins</td>
-              <td>300</td>
-            </tr>
-            <tr>
-              <td>Swimming</td>
-              <td>45 mins</td>
-              <td>400</td>
-            </tr>
+            {activities.map((activity, index) => (
+              <tr key={index}>
+                <td>{activity.name}</td>
+                <td>{activity.duration}</td>
+                <td>{activity.caloriesBurned}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
         <button className="btn btn-primary">Add Activity</button>

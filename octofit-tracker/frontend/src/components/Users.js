@@ -4,9 +4,10 @@ function Users() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('https://redesigned-meme-5gvgpq9vqqvx24vj-8000.app.github.dev/api/users')
+    fetch('https://[REPLACE-WITH-CODESPACE-NAME]-8000.app.github.dev/api/users')
       .then(response => response.json())
-      .then(data => setUsers(data));
+      .then(data => setUsers(data))
+      .catch(error => console.error('Error fetching users:', error));
   }, []);
 
   return (

@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Leaderboard() {
+  const [leaderboard, setLeaderboard] = useState([]);
+
+  useEffect(() => {
+    fetch('https://[REPLACE-WITH-CODESPACE-NAME]-8000.app.github.dev/api/leaderboard')
+      .then(response => response.json())
+      .then(data => setLeaderboard(data))
+      .catch(error => console.error('Error fetching leaderboard:', error));
+  }, []);
+
   return (
     <div className="card">
       <div className="card-header">
@@ -16,16 +25,13 @@ function Leaderboard() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>John Doe</td>
-              <td>1500</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jane Smith</td>
-              <td>1400</td>
-            </tr>
+            {leaderboard.map((entry, index) => (
+              <tr key={index}>
+                <td>{entry.rank}</td>
+                <td>{entry.name}</td>
+                <td>{entry.points}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
